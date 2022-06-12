@@ -12,10 +12,12 @@ class ReminderViewController: UICollectionViewController {
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Row>
     
     var reminder: Reminder
+    var workingReminder: Reminder
     private var dataSource: DataSource!
     
     init(reminder: Reminder) {
         self.reminder = reminder
+        self.workingReminder = reminder
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         listConfiguration.showsSeparators = false
         listConfiguration.headerMode = .firstItemInSection
@@ -41,9 +43,9 @@ class ReminderViewController: UICollectionViewController {
     override func setEditing(_ editing: Bool, animated: Bool) {
         super .setEditing(editing, animated: animated)
         if editing {
-            updateSnapshotForEditing()
+            prepareForEditing()
         } else {
-            updateSnapshotForViewing()
+            prepareForViewing()
         }
     }
     
@@ -66,6 +68,16 @@ class ReminderViewController: UICollectionViewController {
         cell.tintColor = UIColor(named: "TodayPrimaryTint")
     }
     
+    @objc func didCancelEdit() {
+        workingReminder = reminder
+        setEditing(false, animated: true)
+    }
+    
+    private func prepareForEditing() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didCancelEdit))
+        updateSnapshotForEditing()
+    }
+    
     private func updateSnapshotForEditing() {
         var snapshot = Snapshot()
         snapshot.appendSections([.title, .date, .notes])
@@ -73,6 +85,14 @@ class ReminderViewController: UICollectionViewController {
         snapshot.appendItems([.header(Section.date.name), .editDate(reminder.dueDate)], toSection: .date)
         snapshot.appendItems([.header(Section.notes.name), .editText(reminder.notes)], toSection: .notes)
         dataSource.apply(snapshot)
+    }
+    
+    private func prepareForViewing() {
+        navigationItem.leftBarButtonItem = nil
+        if workingReminder != reminder {
+            reminder = workingReminder
+        }
+        updateSnapshotForViewing()
     }
     
     private func updateSnapshotForViewing() {

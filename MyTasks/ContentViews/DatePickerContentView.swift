@@ -1,37 +1,33 @@
 //
-//  TextFieldContentView.swift
+//  DatePickerContentView.swift
 //  MyTasks
 //
-//  Created by Nicholas McGinnis on 6/9/22.
+//  Created by Nicholas McGinnis on 6/12/22.
 //
 
 import UIKit
 
-class TextFieldContentView: UIView, UIContentView {
+class DatePickerContentView: UIView, UIContentView {
     struct Configuration: UIContentConfiguration {
-        var text: String? = ""
+        var date = Date.now
         
         func makeContentView() -> UIView & UIContentView {
-            return TextFieldContentView(self)
+            return DatePickerContentView(self)
         }
     }
     
-    let textField = UITextField()
+    let datePicker = UIDatePicker()
     var configuration: UIContentConfiguration {
         didSet {
             configure(configuration: configuration)
         }
     }
     
-    override var intrinsicContentSize: CGSize {
-        CGSize(width: 0, height: 44)
-    }
-    
     init(_ configuration: UIContentConfiguration) {
         self.configuration = configuration
         super.init(frame: .zero)
-        addPinnedSubview(textField, insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
-        textField.clearButtonMode = .whileEditing
+        addPinnedSubview(datePicker)
+        datePicker.preferredDatePickerStyle = .inline
     }
     
     required init?(coder: NSCoder) {
@@ -40,12 +36,12 @@ class TextFieldContentView: UIView, UIContentView {
     
     func configure(configuration: UIContentConfiguration) {
         guard let configuration = configuration as? Configuration else { return }
-        textField.text = configuration.text
+        datePicker.date = configuration.date
     }
 }
 
 extension UICollectionViewListCell {
-    func textFieldConfiguration() -> TextFieldContentView.Configuration {
-        TextFieldContentView.Configuration()
+    func datePickerConfiguration() -> DatePickerContentView.Configuration {
+        DatePickerContentView.Configuration()
     }
 }

@@ -22,7 +22,7 @@ extension ReminderListViewController {
     func updateSnapshot(reloading ids: [Reminder.ID] = []) {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
-        snapshot.appendItems(Reminder.sampleData.map { $0.id })
+        snapshot.appendItems(reminders.map { $0.id })
         if !ids.isEmpty {
             snapshot.reloadItems(ids)
         }
@@ -68,6 +68,10 @@ extension ReminderListViewController {
             return true
         }
         return action
+    }
+    
+    func add(_ reminder: Reminder) {
+       reminders.append(reminder)
     }
     
     func reminder(for id: Reminder.ID) -> Reminder {

@@ -31,4 +31,9 @@ extension ReminderListViewController {
         let navigationController = UINavigationController(rootViewController: viewController)
         present(navigationController, animated: true)
     }
+    
+    @objc func didChangeListStyle(_ sender: UISegmentedControl) {
+        listStyle = ReminderListStyle(rawValue: sender.selectedSegmentIndex) ?? .today
+        updateSnapshot()
+    }
 }

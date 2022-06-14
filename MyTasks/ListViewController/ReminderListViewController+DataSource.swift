@@ -90,4 +90,9 @@ extension ReminderListViewController {
         update(reminder, with: id)
         updateSnapshot(reloading: [id])
     }
+    
+    func deleteReminder(with id: Reminder.ID) {
+        let index = reminders.indexOfReminder(with: id)
+        reminders.remove(at: index)
+    }
 }

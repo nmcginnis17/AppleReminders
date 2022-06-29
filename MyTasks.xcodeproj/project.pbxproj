@@ -17,6 +17,7 @@
 		1F4DF3F4285632CD0043F64C /* TextViewContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4DF3F3285632CD0043F64C /* TextViewContentView.swift */; };
 		1F4DF3F628563A8F0043F64C /* DatePickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4DF3F528563A8F0043F64C /* DatePickerContentView.swift */; };
 		1F4DF3F8285834100043F64C /* ReminderListStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4DF3F7285834100043F64C /* ReminderListStyle.swift */; };
+		1F5BB4E2286BEE88003BAC88 /* ProgressHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BB4E1286BEE88003BAC88 /* ProgressHeaderView.swift */; };
 		1F87F1FC2842E23900E546D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87F1FB2842E23900E546D7 /* AppDelegate.swift */; };
 		1F87F1FE2842E23900E546D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87F1FD2842E23900E546D7 /* SceneDelegate.swift */; };
 		1F87F2002842E23900E546D7 /* ReminderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87F1FF2842E23900E546D7 /* ReminderListViewController.swift */; };
@@ -41,6 +42,7 @@
 		1F4DF3F3285632CD0043F64C /* TextViewContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewContentView.swift; sourceTree = "<group>"; };
 		1F4DF3F528563A8F0043F64C /* DatePickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerContentView.swift; sourceTree = "<group>"; };
 		1F4DF3F7285834100043F64C /* ReminderListStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListStyle.swift; sourceTree = "<group>"; };
+		1F5BB4E1286BEE88003BAC88 /* ProgressHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHeaderView.swift; sourceTree = "<group>"; };
 		1F87F1F82842E23900E546D7 /* MyTasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F87F1FB2842E23900E546D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F87F1FD2842E23900E546D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				1F87F1FF2842E23900E546D7 /* ReminderListViewController.swift */,
 				1F87F2192849A38700E546D7 /* ReminderListViewController+Actions.swift */,
 				1F87F21528456CC200E546D7 /* ReminderListViewController+DataSource.swift */,
+				1F5BB4E1286BEE88003BAC88 /* ProgressHeaderView.swift */,
 			);
 			path = ListViewController;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				1F87F2132845669500E546D7 /* Date+Time.swift in Sources */,
 				1F87F2002842E23900E546D7 /* ReminderListViewController.swift in Sources */,
 				1F87F1FC2842E23900E546D7 /* AppDelegate.swift in Sources */,
+				1F5BB4E2286BEE88003BAC88 /* ProgressHeaderView.swift in Sources */,
 				1F4DF3DB285196230043F64C /* ReminderViewController+Section.swift in Sources */,
 				1F4DF3F228541AD10043F64C /* UIContentConfiguration+Stateless.swift in Sources */,
 				1F4DF3EB2852EBEE0043F64C /* ReminderViewController+CellConfiguration.swift in Sources */,

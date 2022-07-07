@@ -99,7 +99,15 @@ extension ReminderListViewController {
     }
     
     func add(_ reminder: Reminder) {
-       reminders.append(reminder)
+        var reminder = reminder
+        do {
+            let idFromStore = try reminderStore.save(reminder)
+            reminder.id = idFromStore
+            reminders.append(reminder)
+        } catch MyTaskError.accessDenined {
+        } catch {
+            showError(error)
+        }
     }
     
     func reminder(for id: Reminder.ID) -> Reminder {
